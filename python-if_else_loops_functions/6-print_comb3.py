@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 for number in range(0, 10):
     for next_number in range(number + 1, 10):
-        print(f"{number}{next_number}", end="")
         if number == 8 and next_number == 9:
-            print()
+            print("{}{}".format(number, next_number))
         else:
-            print(", ", end="")
+            print("{}{}, ".format(number, next_number), end="")
