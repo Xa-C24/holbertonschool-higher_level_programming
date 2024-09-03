@@ -5,4 +5,4 @@ for number in range(0, 10):
         if number == 8 and next_number == 9:
             print()
         else:
-            print(", ", end="")
+			print(", ", end="")
