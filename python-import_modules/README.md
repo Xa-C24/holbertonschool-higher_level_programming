@@ -9,6 +9,8 @@ In your terminal:
 
 For check your Output for exemple    chmod +x 0-main.py       python3 0-main.py  ./0-name_file.py  
 
+Download "Extension Python" automatically correct indentation  
+
 0. Import a simple function from a simple file  
 1. My first toolbox!  
 2. How to make a script dynamic!  
