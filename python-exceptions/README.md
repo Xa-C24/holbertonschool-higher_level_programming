@@ -1,4 +1,4 @@
-** Python - Exceptions**  
+**Python - Exceptions**  
 
 Exceptions in Python are errors that occur during program execution.  
 Python offers mechanisms for handling these errors in an elegant way, so that the program doesn't abruptly terminate in the event of a problem.  
