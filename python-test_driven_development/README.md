@@ -42,9 +42,9 @@ Write tests for simple cases and then add more complex cases.
 
 
 
-0. Integers addition  
-1. Divide a matrix  
-2. Say my name  
+0. Integers addition            for test in local python3 -m doctest -v ./tests/0-add_integer.txt  
+1. Divide a matrix              python3 -m doctest -v ./tests/2-matrix_divided.txt  
+2. Say my name                  python3 -m doctest -v ./tests/3-say_my_name.txt  
 3. Print square  
 4. Text indentation  
 5. Max integer - Unittest  
