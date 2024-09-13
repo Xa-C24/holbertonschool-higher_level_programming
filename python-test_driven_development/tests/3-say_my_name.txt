@@ -4,7 +4,7 @@
 My name is  Smith
 
 >>> say_my_name("", "")
-My name is
+My name is  
 
 >>> say_my_name([], "Smith")
 Traceback (most recent call last)
