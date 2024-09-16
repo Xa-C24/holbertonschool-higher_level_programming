@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module 2-square: défine a class Square with size validation"""
+"""Module 3-square: défine a class Square with size validation and aera calcul"""
 
 
 class Square:
