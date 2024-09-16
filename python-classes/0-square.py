@@ -2,4 +2,5 @@
 """Module 0-square: Defines an empty class Square."""
 
 class Square:
+    """Empty class"""
     pass
