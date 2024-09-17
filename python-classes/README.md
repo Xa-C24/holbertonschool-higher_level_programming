@@ -15,25 +15,25 @@ python3 0-main.py
 A class is a model or structure used to create objects.  
 It defines a set of attributes (variables) and methods (functions) that characterize the objects created from this class.  
 
-            class Person:
-    def __init__(self, name, age):
+        class Person:  
+        def __init__(self, name, age):
         self.name = name  # Attribut de l'instance
         self.age = age    # Attribut de l'instance  
 
 In this example, Person is a class.  
 The special __init__ method is the class constructor, used to initialize the object's attributes (here, name and age).  
 
-**2. What is an Object?**    
+**2. What is an Object?**  
 An object is an instance of a class. It is a concrete entity created from the model defined by the class.   
 
 
-        person1 = Person("Alice", 30)
-print(person1.name)  # Affiche: Alice
-print(person1.age)   # Affiche: 30  
+        person1 = Person("Alice", 30)  
+        print(person1.name)  # Affiche: Alice  
+        print(person1.age)   # Affiche: 30  
 
 Here, person1 is an object of class Person with attributes name and age  
 
-**3. Class attributes**  
+**3. Class attributes**   
 Attributes are variables that belong to a class. A distinction is made between : 
  - Instance attributes: specific to each object in the class.   
 - Class attributes (not discussed in depth here): Shared by all instances of the class.  
@@ -64,7 +64,3 @@ Encapsulation: Hide the internal details of a class to protect its data.
 4. Access and update private attribute  
 5. Printing a square  
 6. Coordinates of a square  
-
-
-
-
