@@ -46,8 +46,8 @@ Write tests for simple cases and then add more complex cases.
 1. Divide a matrix              python3 -m doctest -v ./tests/2-matrix_divided.txt  
 2. Say my name                  python3 -m doctest -v ./tests/3-say_my_name.txt  
 3. Print square                 python3 -m doctest -v ./tests/4-print_square.txt
-4. Text indentation  
-5. Max integer - Unittest  
+4. Text indentation             python3 -m doctest -v ./tests/5-text_indentation.txt
+5. Max integer - Unittest       python3 -m unittest tests/6-max_integer_test.py
 
 
 
