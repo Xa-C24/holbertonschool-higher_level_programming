@@ -1,0 +1,62 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test de base avec ponctuation
+>>> text_indentation("Hello. How are you? I hope you're doing well: Enjoy!")
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+I hope you're doing well:
+<BLANKLINE>
+Enjoy!
+
+# Test avec des espaces après les signes de ponctuation
+>>> text_indentation("Hello.   How are you?   I hope you're doing well:   Enjoy!")
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+I hope you're doing well:
+<BLANKLINE>
+Enjoy!
+
+# Test avec des espaces au début et à la fin
+>>> text_indentation("   Hello. How are you? I hope you're doing well: Enjoy!   ")
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+I hope you're doing well:
+<BLANKLINE>
+Enjoy!
+
+# Test sans ponctuation
+>>> text_indentation("This is a test without punctuation")
+This is a test without punctuation
+
+# Test avec des caractères consécutifs
+>>> text_indentation("Hello... How are you?? I hope you're doing well::")
+Hello.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+?
+<BLANKLINE>
+I hope you're doing well:
+<BLANKLINE>
+:
+
+# Test avec un texte vide
+>>> text_indentation("")
+<BLANKLINE>
+
+# Test si le texte n'est pas une chaîne (attend une TypeError)
+>>> try:
+...     text_indentation(123)
+... except Exception as e:
+...     print(e)
+text must be a string
