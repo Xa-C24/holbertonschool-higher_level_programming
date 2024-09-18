@@ -3,18 +3,19 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    if text == "":
-        print()
-        return
+    ignore_space = False
 
-    i = 0
-    while i < len(text):
+    for i in range(len(text)):
+        
+        if ignore_space and text[i] == ' ':
+            continue
+        ignore_space = False
+        
+       
         print(text[i], end="")
+
+        
         if text[i] in ['.', '?', ':']:
             print("\n")
-            i += 1
+            ignore_space = True
             
-            while i < len(text) and text[i] == ' ':
-                i += 1
-            continue
-        i += 1
