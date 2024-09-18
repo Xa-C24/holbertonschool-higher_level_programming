@@ -42,16 +42,15 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
-    
+
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ""
-        
+
         result = []
         for _ in range(self.__height):
             result.append("#" * self.__width)
         return "\n".join(result)
 
     def __repr__(self):
-        return f"Rectangle({self.__width}, {self.__height})"   
-    
+        return f"Rectangle({self.__width}, {self.__height})"
