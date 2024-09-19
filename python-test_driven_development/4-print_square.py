@@ -3,6 +3,7 @@
 module that defines a function print sqaure.
 """
 
+
 def print_square(size):
     if not isinstance(size, int):
         raise TypeError("size must be an integer")
