@@ -54,19 +54,19 @@ This is a form of code reuse without creating an "is-one" relationship (as in in
 - Polymorphism: Ability to use methods on different objects in a generic way.  
 - Composition: Alternative to inheritance, where a class includes instances of other classes.  
 
-| Files names | Descriptions |  
+| Files names | Descriptions |
 
-|-----------| ---------------------------------------------------------------|  
+|-----------| ---------------------------------------------------------------|
 |0.| Lookup   |
-|1.| My list |     python3 -m doctest -v ./tests/1-my_list.txt  |  
-|2.| Exact same object  |  
-|3. |Same class or inherit f|  
-|5.| Geometry module  |  
-|6.| Improve Geometry  |  
-|7.| Integer validator    python3 -m doctest -v ./tests/7-base_geometry.txt  |  
-|8.| Rectangle  |  
-|9.| Full rectangle  |  
-|10.| Square #1  |  
-|11.| Square #2  |  
+|1.| My list |     python3 -m doctest -v ./tests/1-my_list.txt  Files  |
+|2.| Exact same object  |
+|3. |Same class or inherit f|
+|5.| Geometry module  |
+|6.| Improve Geometry  |
+|7.| Integer validator    python3 -m doctest -v ./tests/7-base_geometry.txt  |
+|8.| Rectangle  |
+|9.| Full rectangle  |
+|10.| Square #1  |
+|11.| Square #2  |
 
 
