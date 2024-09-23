@@ -56,7 +56,7 @@ This is a form of code reuse without creating an "is-one" relationship (as in in
 
 | Files names | Descriptions |
 
-|-----------| ---------------------------------------------------------------|  
+|-----------|---------------------------------------------------------------|  
 |0.| Lookup   |
 |1.| My list |     python3 -m doctest -v ./tests/1-my_list.txt  Files  |
 |2.| Exact same object  |
@@ -70,8 +70,8 @@ This is a form of code reuse without creating an "is-one" relationship (as in in
 |11.| Square #2  |
 
 
-| Colonne 1     | Colonne 2    | Colonne 3    |
+|  Files names  | Descriptions   | Colonne 3  |
 |---------------|--------------|--------------|
-| Contenu ligne 1 | Contenu ligne 1 | Contenu ligne 1 |
-| Contenu ligne 2 | Contenu ligne 2 | Contenu ligne 2 |
-| Contenu ligne 3 | Contenu ligne 3 | Contenu ligne 3 |
+| 0 | Lookup | Contenu ligne 1 |
+| 1 | My list| python3 -m doctest -v ./tests/1-my_list.txt  Files |
+| 2 | Exact same object  | Contenu ligne 3 |
