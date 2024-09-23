@@ -54,7 +54,9 @@ This is a form of code reuse without creating an "is-one" relationship (as in in
 - Polymorphism: Ability to use methods on different objects in a generic way.  
 - Composition: Alternative to inheritance, where a class includes instances of other classes.  
 
+| Files names | Descriptions |
 
+|-----------| -------------------------------------------------------------------------------------------------------------|
 |0.| Lookup   |
 |1.| My list |     python3 -m doctest -v ./tests/1-my_list.txt  |  
 |2.| Exact same object  |  
