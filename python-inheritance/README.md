@@ -70,3 +70,8 @@ This is a form of code reuse without creating an "is-one" relationship (as in in
 |11.| Square #2  |
 
 
+| Colonne 1     | Colonne 2    | Colonne 3    |
+|---------------|--------------|--------------|
+| Contenu ligne 1 | Contenu ligne 1 | Contenu ligne 1 |
+| Contenu ligne 2 | Contenu ligne 2 | Contenu ligne 2 |
+| Contenu ligne 3 | Contenu ligne 3 | Contenu ligne 3 |
