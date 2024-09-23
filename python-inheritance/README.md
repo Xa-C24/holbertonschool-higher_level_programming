@@ -78,3 +78,5 @@ This is a form of code reuse without creating an "is-one" relationship (as in in
 |3  |Same class or inherit from|             |
 |4 |Only sub class of  |                     |
 |5 | Geometry module   |                     |
+|6 | Improve Geometry  |                     |
+|7 | Integer validator |  python3 -m doctest -v ./tests/7-base_geometry.txt  |
