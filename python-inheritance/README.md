@@ -75,3 +75,6 @@ This is a form of code reuse without creating an "is-one" relationship (as in in
 | 0 | Lookup    |                            |
 | 1 | My list   | python3 -m doctest -v ./tests/1-my_list.txt |
 | 2 | Exact same object  |                   |
+|3  |Same class or inherit from|             |
+|4 |Only sub class of  |                     |
+|5 | Geometry module   |                     |
