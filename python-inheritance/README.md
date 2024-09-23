@@ -46,7 +46,8 @@ Polymorphism allows methods to be used generically for objects of different subc
 Sometimes, instead of using inheritance, it may be more useful to compose a class by including objects from other classes as attributes.    
 This is a form of code reuse without creating an "is-one" relationship (as in inheritance), but rather an "a-one" one.  
 
-**Summary:**   
+**Summary:**  
+
 - Inheritance: Allows a class to inherit attributes and methods from another class.  
 - super() : Used to call methods or constructors of the parent class.  
 - Multiple inheritance: A class can inherit from several classes.  
@@ -54,5 +55,16 @@ This is a form of code reuse without creating an "is-one" relationship (as in in
 - Composition: Alternative to inheritance, where a class includes instances of other classes.  
 
 
+|0.| Lookup   |
+|1.| My list |     python3 -m doctest -v ./tests/1-my_list.txt  |  
+|2.| Exact same object  |  
+|3. |Same class or inherit f|  
+|5.| Geometry module  |  
+|6.| Improve Geometry  |  
+|7.| Integer validator    python3 -m doctest -v ./tests/7-base_geometry.txt  |  
+|8.| Rectangle  |  
+|9.| Full rectangle  |  
+|10.| Square #1  |  
+|11.| Square #2  |  
 
 
