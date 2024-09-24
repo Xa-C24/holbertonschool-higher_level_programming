@@ -1,15 +1,11 @@
 #!/usr/bin/python3
+""""6-base_geometry.py
 """
-    This module defines a class BaseGeometry that includes a method area.
 
-    Class:
-        BaseGeometry: Class representing the basic geometry.
 
-    Methods:
-        area(self): Lifts an exception.
-    """
 class BaseGeometry:
-        
+    """ BaseGeometry class """
+         
     class BaseGeometry:
         """class BaseGeometry with an area method."""
 
