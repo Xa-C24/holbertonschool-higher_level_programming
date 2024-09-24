@@ -58,6 +58,8 @@ They allow you to force the implementation of specific methods in subclasses whi
 Although Python has no formal concept of interface, abstract classes can be used to create similar structures to respect contracts and enforce rules in code.  
 
 
+
+
 0. Abstract Animal Class and its Subclasses  
 1. Shapes, Interfaces, and Duck Typing  
 2. Extending the Python List with Notifications  
