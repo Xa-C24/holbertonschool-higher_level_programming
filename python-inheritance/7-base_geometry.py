@@ -1,4 +1,14 @@
 #!/usr/bin/python3
+"""
+    This module defines a class BaseGeometry with methods for area calculation and integer validation.
+    
+    Class:
+        BaseGeometry: Class representing the basic geometry with an 'area' method
+    
+    Methods:
+        area(self): Raises an exception
+    
+    """
 class BaseGeometry:
     """class BaseGeometry with an area method."""
 
