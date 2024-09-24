@@ -1,21 +1,22 @@
 #!/usr/bin/python3
 """
-    This module defines a class BaseGeometry with methods for area calculation and integer validation.
-    
+    This module defines a class BaseGeometry.
+
     Class:
-        BaseGeometry: Class representing the basic geometry with an 'area' method
-    
+        BaseGeometry: Class representing the basic geometry with an 'area'
+
     Methods:
         area(self): Raises an exception if called.
-    
+
 """
+
+
 class BaseGeometry:
     """class BaseGeometry with an area method."""
 
     def area(self):
         """
         Raises an Exception indicating that the area method is not implemented.
-        
         """
         raise Exception("area() is not implemented")
 
@@ -30,7 +31,8 @@ class BaseGeometry:
         Raises:
             TypeError: If 'value' is not an integer.
             ValueError: If 'value' is less than or equal to 0.
-        """ 
+        """
+
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
