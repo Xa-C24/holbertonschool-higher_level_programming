@@ -1,16 +1,8 @@
 #!/usr/bin/python3
+"""5-base_geometry.py
 """
-    This module defines an empty class BasGeometry.
 
-    Args:
-        None
 
-    Class:
-        BaseGeometry: An empty class used as a base for geometry.
-
-    Returns:
-        None.
-    """
 class BaseGeometry:
-
+    """ Empty class """
     pass
