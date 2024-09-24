@@ -14,7 +14,7 @@ class Square(Rectangle):
         Initializes Square class which inherits from Rectangle.
     
         Args:
-        Size (int): The size of the square
+            Size (int): The size of the square
         """
 
         self.integer_validator("size", size)
