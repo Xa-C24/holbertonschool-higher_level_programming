@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This module defines a class MyList that inherits from the built-in list class
+and provides an additional method to print the list in sorted order.
+"""
+
 
 class MyList(list):
     """"
