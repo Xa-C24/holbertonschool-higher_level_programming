@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-class BaseGeometry:
-    """
+"""
     This module defines a class BaseGeometry that includes a method area.
 
     Class:
@@ -8,7 +7,9 @@ class BaseGeometry:
 
     Methods:
         area(self): Lifts an exception.
-        """
+    """
+class BaseGeometry:
+        
     class BaseGeometry:
         """class BaseGeometry with an area method."""
 
