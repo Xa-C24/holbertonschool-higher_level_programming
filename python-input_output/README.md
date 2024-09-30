@@ -1,4 +1,4 @@
-**Python - Input/Output**  
+**Python - Input/Outpu  Serialization/Deserialization**  
 
 In Python, the term Input/Output (I/O) refers to the mechanisms by which a program interacts with its environment,  
 in particular to read data (input) and write data (output).  
@@ -58,3 +58,30 @@ There are three main streams that are automatically available in every Python pr
         fichier.write(f"Bonjour, {nom} !")  
 
 In a nutshell, Input/Output in Python is anything that allows your program to read data from the outside  (such as a user or a file) and write data to the outside (such as displaying it on the screen or saving it to a file).  
+
+**Sérialisation/Deserialization**  
+
+Serialization and deserialization are important concepts in programming, particularly for data management.
+
+1. Serialization   
+Serialization is the process of converting an object or data structure into a format that can be easily stored or transmitted.  
+This format is often a text format (such as JSON, XML) or a binary format (such as BSON, pickle in Python).  
+The idea is to take the data in memory (such as a list, a dictionary or an object) and convert it into a character string or a sequence of bytes.  
+
+-Stored in a file or database,  
+- Sent via a network to another programme or machine.  
+
+2. Deserialization  
+Deserialization is the reverse operation of serialization.   
+It involves taking the serialized data (stored as a string or bytes) and converting it back to its original format, i.e. an object, a list, a dictionary, etc.  
+In other words, it reconstructs the object or data structure from its serialised format.  
+
+Common uses:  
+- Save state: Serialise an object to save it (for example, in a file) so that it can be restored later (deserialise).  
+- Data transmission: In network communications (for example, via APIs or sockets), serialization allows data to be transmitted from one program to another using a standard format such as JSON or XML.  
+- Databases: Some databases can store serialized objects.  
+
+In short:  
+
+- Serialization: Conversion of an object into a storable or transmittable format (e.g. JSON, binary).  
+- Deserialization: Reconstitution of the object from this serialized format. These processes are widely used in programming to facilitate the storage, transmission of data and persistence of objects between program executions.  
