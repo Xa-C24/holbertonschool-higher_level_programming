@@ -85,3 +85,11 @@ In short:
 
 - Serialization: Conversion of an object into a storable or transmittable format (e.g. JSON, binary).  
 - Deserialization: Reconstitution of the object from this serialized format. These processes are widely used in programming to facilitate the storage, transmission of data and persistence of objects between program executions.  
+
+**json**
+
+  json.dump(my_obj, f):  
+  sauvegarder des données de manière structurée et les partager avec d'autres systèmes qui lisent le format JSON.  
+
+  json.loads:  
+  convertit en une structure de données Python, telle qu'un dictionnaire, une liste, un nombre, ou une chaîne de caractères.  
