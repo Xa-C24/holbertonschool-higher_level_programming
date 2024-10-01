@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""create Student class"""
+
 
 class Student:
     """"Initialise a new student"""
