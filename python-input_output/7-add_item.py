@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script to add command-line arguments to a list and save them in a JSON file."""
+"""Script to add command-line arguments to a list."""
 
 
 import sys
@@ -11,7 +11,7 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 filename = 'add_item.json'
 
-"""If the file exists, loads the list, otherwise initializes an empty list"""
+"""If the file exists, loads the list, otherwise initializes [] list"""
 if os.path.exists(filename):
     items = load_from_json_file(filename)
 else:
