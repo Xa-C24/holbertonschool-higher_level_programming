@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""import_sys-import_os"""
+"""Script to add command-line arguments to a list and save them in a JSON file."""
 
 
 import sys
