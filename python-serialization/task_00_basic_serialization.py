@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Import Module json"""
 import json
+"""Import Module json"""
 
 
 def serialize_and_save_to_file(data, filename):
