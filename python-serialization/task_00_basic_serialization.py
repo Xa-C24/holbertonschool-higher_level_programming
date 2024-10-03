@@ -15,4 +15,4 @@ def load_and_deserialize(filename):
     """Loads data from the 'filename' file and deserializes it into a Python dictionary."""
 
     with open(filename, 'r') as file:
-        return json.load(filename)
+        return json.load(file)
