@@ -32,6 +32,8 @@ HTTP est généralement utilisé pour les sites ou services qui n’ont pas beso
 HTTPS est essentiel pour les sites qui gèrent des informations sensibles, comme les services bancaires en ligne, les boutiques e-commerce, les systèmes de gestion de comptes utilisateurs, etc.  
 
 
+
+
 **3.Exploring HTTP Methods and Status Codes:**  
 
 Ces éléments sont essentiels pour comprendre comment les clients (comme les navigateurs) et les serveurs web communiquent.  
