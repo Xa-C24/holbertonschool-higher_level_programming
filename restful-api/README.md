@@ -3,7 +3,7 @@
 
 ## 0. Basics of HTTP/HTTPS  
 
-##1.Differentiating HTTP and HTTPS:##  
+## 1.Differentiating HTTP and HTTPS:##  
 
 
 **HTTP (HyperText Transfer Protocol) :**   
@@ -34,7 +34,7 @@ HTTPS est essentiel pour les sites qui gèrent des informations sensibles, comme
 
 
 
-##3.Exploring HTTP Methods and Status Codes:##    
+## 3.Exploring HTTP Methods and Status Codes:##    
 
 Ces éléments sont essentiels pour comprendre comment les clients (comme les navigateurs) et les serveurs web communiquent.  
 
