@@ -3,7 +3,7 @@
 
 ## 0. Basics of HTTP/HTTPS  
 
-## 1.Differentiating HTTP and HTTPS:##  
+## 1.Differentiating HTTP and HTTPS:  
 
 
 **HTTP (HyperText Transfer Protocol) :**   
@@ -66,3 +66,21 @@ Description :
 La méthode DELETE est utilisée pour supprimer une ressource du serveur.  
 Utilisation :  
 Si tu veux supprimer un compte utilisateur ou un article de blog, une requête DELETE est envoyée au serveur pour indiquer qu'une ressource doit être supprimée.  
+
+##  Qu'est-ce que curl ?  
+**curl** (Client URL) est un outil en ligne de commande utilisé pour transférer des données vers ou depuis un serveur réseau, en utilisant différents protocoles comme HTTP, HTTPS, FTP, etc.  
+Il est très populaire pour interagir avec les APIs RESTful,   
+car il permet d'envoyer des requêtes HTTP (GET, POST, PUT, DELETE) et d'obtenir des réponses facilement.
+
+**Pourquoi utiliser curl** pour interagir avec des APIs ?  
+
+Tester des APIs rapidement :  
+Tu peux envoyer des requêtes à une API directement depuis la ligne de commande, sans avoir à écrire du code.  
+
+Déboguer des serveurs :  
+C'est un excellent outil pour voir comment un serveur répond à des requêtes spécifiques et pour détecter des erreurs.  
+Prototyper : Tu peux rapidement tester une requête à une API avant d'intégrer cette requête dans ton application.  
+
+Fonction GET  
+
+        curl https://jsonplaceholder.typicode.com/posts/1
