@@ -1,7 +1,7 @@
-#RESTful API  
+# RESTful API  
 
 
-##0. Basics of HTTP/HTTPS
+## 0. Basics of HTTP/HTTPS  
 **1.Differentiating HTTP and HTTPS:**  
 
 HTTP (HyperText Transfer Protocol) :  
