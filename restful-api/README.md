@@ -2,9 +2,11 @@
 
 
 ## 0. Basics of HTTP/HTTPS  
+
 **1.Differentiating HTTP and HTTPS:**  
 
-HTTP (HyperText Transfer Protocol) :  
+HTTP (HyperText Transfer Protocol) : 
+
 Protocole non sécurisé : HTTP ne chiffre pas les données qui transitent entre le client (navigateur) et le serveur.  
 Cela signifie que les informations envoyées via HTTP peuvent être facilement interceptées par des tiers (attaquants, pirates). 
 Port 80 : Le protocole HTTP utilise par défaut le port 80 pour la communication entre le client et le serveur.  
@@ -22,6 +24,7 @@ HTTP : Pas de chiffrement, les données sont transmises en clair.
 HTTPS : Chiffrement des données avec SSL/TLS, garantissant la confidentialité des échanges.  
 
 
- Cas d’utilisation :  
+ Cas d’utilisation : 
+
 HTTP est généralement utilisé pour les sites ou services qui n’ont pas besoin de sécurité renforcée, comme des blogs ou des sites publics qui ne traitent pas de données sensibles.  
 HTTPS est essentiel pour les sites qui gèrent des informations sensibles, comme les services bancaires en ligne, les boutiques e-commerce, les systèmes de gestion de comptes utilisateurs, etc.  
