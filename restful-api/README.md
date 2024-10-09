@@ -86,5 +86,5 @@ Fonction GET
         curl https://jsonplaceholder.typicode.com/posts/1  
 
         curl http://localhost:8000
-        curl http://localhost:8000/status
+        curl http://localhost:8000/status.
         
