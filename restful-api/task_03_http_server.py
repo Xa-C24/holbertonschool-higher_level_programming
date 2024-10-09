@@ -16,15 +16,13 @@ class SimpleAPI(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b" Hello this is a simple API!")
 
-
         elif self.path == "/data":
             self.send_response(200)
             """return ok if is good with code(200)"""
             self.send_header("Content-type", "application/json")
             self.end_headers()
             """Spécification du type de contenu (JSON)"""
-           
-        
+
             """End of HTTP header transmission"""
 
             data = {
@@ -61,7 +59,8 @@ class SimpleAPI(BaseHTTPRequestHandler):
             self.wfile.write(b"Endpoint not found")
 
 
-server_adress = ("", 8000)
-httpd = HTTPServer(server_adress, SimpleAPI)
-print("Serving port 8000...")
-httpd.serve_forever()
+if __name__ == "__main__":
+    server_adress = ("", 8000)
+    httpd = HTTPServer(server_adress, SimpleAPI)
+    print("Serving port 8000...")
+    httpd.serve_forever()
