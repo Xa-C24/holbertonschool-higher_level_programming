@@ -83,4 +83,8 @@ Prototyper : Tu peux rapidement tester une requête à une API avant d'intégrer
 
 Fonction GET  
 
-        curl https://jsonplaceholder.typicode.com/posts/1
+        curl https://jsonplaceholder.typicode.com/posts/1  
+
+        curl http://localhost:8000
+        curl http://localhost:8000/status
+        
