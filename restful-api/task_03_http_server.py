@@ -10,7 +10,7 @@ class SimpleAPI(BaseHTTPRequestHandler):
     def do_GET(self):
         """manage GET requests"""
 
-        if self.path == '/0':
+        if self.path == '/':
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
@@ -23,8 +23,6 @@ class SimpleAPI(BaseHTTPRequestHandler):
             self.end_headers()
             """Spécification du type de contenu (JSON)"""
 
-            """End of HTTP header transmission"""
-
             data = {
                 "name": "john",
                 "age": "30",
@@ -36,7 +34,7 @@ class SimpleAPI(BaseHTTPRequestHandler):
 
         elif self.path == '/status':
             self.send_response(200)
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"OK")
 
@@ -60,7 +58,7 @@ class SimpleAPI(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    server_adress = ("", 8000)
-    httpd = HTTPServer(server_adress, SimpleAPI)
+    server_address = ("", 8000)
+    httpd = HTTPServer(server_address, SimpleAPI)
     print("Serving port 8000...")
     httpd.serve_forever()
