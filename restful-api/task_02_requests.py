@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-
-'''Module task_02 request: Define consuming and
-processing data from an API using python'''
+"""
+Module task_02 request: Define consuming and processing data from an API using python
+"""
 
 
 import requests
