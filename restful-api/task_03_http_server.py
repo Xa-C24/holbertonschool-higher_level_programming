@@ -12,7 +12,7 @@ class SimpleAPI(BaseHTTPRequestHandler):
 
         if self.path == '/0':
             self.send_response(200)
-            self.send_header("Content-type", "text/html")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b" Hello this is a simple API!")
 
