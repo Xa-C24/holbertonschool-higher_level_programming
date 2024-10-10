@@ -24,7 +24,7 @@ class SimpleAPI(BaseHTTPRequestHandler):
             """Spécification du type de contenu (JSON)"""
 
             data = {
-                "name": "john",
+                "name": "John",
                 "age": "30",
                 "city": "New York"
             }
