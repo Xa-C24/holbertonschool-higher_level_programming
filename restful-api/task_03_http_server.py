@@ -10,16 +10,16 @@ class SimpleAPI(BaseHTTPRequestHandler):
     def do_GET(self):
         """manage GET requests"""
 
-        if self.path == "/":
+        if self.path == '/0':
             self.send_response(200)
-            self.send_header("Content-type", "text/plain")
+            self.send_header("Content-type", "text/html")
             self.end_headers()
             self.wfile.write(b" Hello this is a simple API!")
 
         elif self.path == "/data":
             self.send_response(200)
             """return ok if is good with code(200)"""
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", 'application/json')
             self.end_headers()
             """Spécification du type de contenu (JSON)"""
 
@@ -34,15 +34,15 @@ class SimpleAPI(BaseHTTPRequestHandler):
             """Sending JSON data encoded in UTF-8"""
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
-        elif self.path == "/status":
+        elif self.path == '/status':
             self.send_response(200)
-            self.send_header("Content-type", "text/plain")
+            self.send_header("Content-type", "application/json")
             self.end_headers()
             self.wfile.write(b"OK")
 
         elif self.path == "/info":
             self.send_response(200)
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", 'application/json')
             self.end_headers()
 
             info_data = {
