@@ -56,7 +56,7 @@ def status():
 def get_user(username):
     user_data = users.get(username)
     if user_data:
-        return jsonify(username)
+        return jsonify({username: user_data})
     else:
         return jsonify({"error": "User not found"}), 404
 
@@ -67,8 +67,8 @@ def get_user(username):
 @app.route('/add_user', methods=['POST'])
 def add_user():
     if not request.json or not 'username' in request.json:
-        return jsonify({"error": "Username is requied"}), 400
-    if not 'name' in request.json:
+        return jsonify({"error": "Username is required"}), 400
+    if not 'name' in request.json or 'age' not in request.json or 'city' not in request.json:
         return jsonify({"error": "Bad Request: Missing user information"}), 400
 
     """Récupère les données envoyées dans la requête POST"""
