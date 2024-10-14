@@ -62,7 +62,7 @@ def get_user(username):
             "age": user_data["age"],
             "city": user_data["city"]
         })
-    
+
     else:
         return jsonify({"error": "User not found"}), 404
 
