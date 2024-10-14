@@ -57,7 +57,7 @@ def get_user(username):
     user_data = users.get(username)
     if user_data:
         return jsonify({
-            "username": user_data["name"],
+            "username": username,
             "name": user_data["name"],
             "age": user_data["age"],
             "city": user_data["city"]
