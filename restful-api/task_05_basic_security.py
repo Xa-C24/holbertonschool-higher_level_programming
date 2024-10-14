@@ -46,8 +46,7 @@ def verify_password(username, password):
 @app.route('/basic-auth-protected', methods=['GET'])
 @auth.login_required
 def basic_auth_protected():
-    username = auth.current_user()
-    return jsonify({"message": f"Hello, {username}. You are authenticated with Basic Auth!"})
+    return jsonify({"message": "Basic Auth: Access Granted"})
 
 
 """Route de connexion pour authentifier les utilisateurs et renvoyer un jeton JWT"""
@@ -82,7 +81,7 @@ def admin_only():
     if current_user["role"] != "admin":
         return jsonify({"msg": "Admin access required"}), 403
 
-    return jsonify({"message": f"Admin Access Granted for {current_user['username']}!"})
+    return jsonify({"message": f"Admin Access Granted"})
 
 
 """Voie générale protégée par JWT : accessible à tout utilisateur authentifié"""
@@ -93,7 +92,7 @@ def admin_only():
 def jwt_protected():
     current_user = get_jwt_identity()
     """Obtenir l'identité de l'utilisateur actuel à partir du jeton JWT"""
-    return jsonify({"message": f"JWT: Auth: Access Granted for {current_user}!"})
+    return jsonify({"message": "JWT Auth: Access Granted"})
 
 
 """Fonction principale pour exécuter l'application Flask"""
