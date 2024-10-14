@@ -30,7 +30,7 @@ users = {
 
 @app.route('/')
 def home():
-    return "Welcome to the Flask API!!"
+    return jsonify({"message": "Welcome to the Flask API!!"})
 
 
 """Route pour obtenir la liste des utilisateurs"""
@@ -46,7 +46,7 @@ def get_users():
 
 @app.route('/status')
 def status():
-    return "OK"
+    return jsonify({"status": "OK"})
 
 
 """Route pour obtenir les informations d'un utilisateur"""
@@ -56,7 +56,13 @@ def status():
 def get_user(username):
     user_data = users.get(username)
     if user_data:
-        return jsonify({username: user_data})
+        return jsonify({
+            "username": user_data["name"],
+            "name": user_data["name"],
+            "age": user_data["age"],
+            "city": user_data["city"]
+        })
+    
     else:
         return jsonify({"error": "User not found"}), 404
 
