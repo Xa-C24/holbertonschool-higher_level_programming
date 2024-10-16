@@ -6,7 +6,7 @@
 """Importation de OrderedDict pour garantir l'ordre des clés"""
 
 """Création d'une instance de l'application Flask"""
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response
 from collections import OrderedDict
 app = Flask(__name__)
 
@@ -30,7 +30,7 @@ users = {
 
 @app.route('/')
 def home():
-    return "Welcome to the Flask API!"
+     return Response("Welcome to the Flask API!", mimetype='text/plain')
 
 
 """Route pour obtenir la liste des utilisateurs"""
