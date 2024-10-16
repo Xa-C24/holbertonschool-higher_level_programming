@@ -6,22 +6,23 @@
 """Importation de OrderedDict pour garantir l'ordre des clés"""
 
 """Création d'une instance de l'application Flask"""
+
 from flask import Flask, jsonify, request, Response
 from collections import OrderedDict
 app = Flask(__name__)
 
 """Dictionnaire contenant des utilisateurs"""
 users = {
-    "jane": OrderedDict([
+    "jane": {
         ("name", "Jane"),
         ("age", 28),
         ("city", "Los Angeles")
-    ]),
-    "john": OrderedDict([
+    },
+    "john": {
         ("name", "John"),
         ("age", 30),
         ("city", "New York")
-    ])
+    }
 }
 
 
@@ -30,7 +31,7 @@ users = {
 
 @app.route('/')
 def home():
-     return Response("Welcome to the Flask API!", mimetype='text/plain')
+    return Response("Welcome to the Flask API!", mimetype='text/plain')
 
 
 """Route pour obtenir la liste des utilisateurs"""
@@ -72,12 +73,16 @@ def get_user(username):
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
+    """Vérification des données JSON et des champs requis"""
     if not request.json or not 'username' in request.json:
         return jsonify({"error": "Username is required"}), 400
-    if not 'name' in request.json or 'age' not in request.json or 'city' not in request.json:
-        return jsonify({"error": "Bad Request: Missing user information"}), 400
 
-    """Récupère les données envoyées dans la requête POST"""
+    """Amélioration de la gestion des champs requis en utilisant une boucle"""
+    required_fields = ['username', 'name', 'age', 'city']
+    for field in required_fields:
+        if field not in request.json:
+            return jsonify({"error": f"{field} is required"}), 400
+
     username = request.json.get('username')
     name = request.json.get('name')
     age = request.json.get('age')
@@ -87,12 +92,20 @@ def add_user():
     if username in users:
         return jsonify({"error": "User already exists"}), 400
 
+    """Validation supplémentaire : s'assurer que l'âge est un entier positif"""
+    if not isinstance(age, int) or age <= 0:
+        return jsonify({"error": "Age must be a positive integer"}), 400
+
+    """Validation supplémentaire : s'assurer que name et city sont des chaînes"""
+    if not isinstance(name, str) or not isinstance(city, str):
+        return jsonify({"error": "Name and city must be strings"}), 400
+
     """Ajoute le nouvel utilisateur au dictionnaire users"""
-    users[username] = OrderedDict([
+    users[username] = {
         ("name", name),
         ("age", age),
         ("city", city),
-    ])
+    }
 
     """Retourne un message de confirmation et les informations de l'utilisateur"""
     return jsonify({
@@ -108,4 +121,4 @@ def add_user():
 
 """Lance l'application Flask en mode debug sur le port 5000"""
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run()
