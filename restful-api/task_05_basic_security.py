@@ -59,7 +59,7 @@ def login():
 
     """Vérifier si le nom d'utilisateur existe et si le mot de passe est correct"""
 
-    if username not in users or not check_password_hash(users[username], password):
+    if username not in users or not check_password_hash(users[username]['password'], password):
         return jsonify({"msg": "Bad username or password"}), 401
 
     """Créer un jeton JWT contenant le nom d'utilisateur et le rôle de l'utilisateur"""
