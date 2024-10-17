@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Script démontrant l'authentification HTTP de base et JWT dans Flask"""
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import (
@@ -33,7 +33,10 @@ def verify_password(username, password):
         return username
     return None
 
-"""Suppression du gestionnaire d'erreur personnalisé pour Flask-HTTPAuth"""
+# Ajout du gestionnaire d'erreur personnalisé pour Flask-HTTPAuth
+@auth.error_handler
+def unauthorized():
+    return make_response(jsonify({"error": "Unauthorized access"}), 401, {'WWW-Authenticate': 'Basic realm="Login Required"'})
 
 @app.route('/basic-protected', methods=['GET'])
 @auth.login_required
@@ -59,7 +62,7 @@ def login():
     )
     return jsonify(access_token=access_token)
 
-"""Gestionnaires d'erreurs JWT"""
+# Gestionnaires d'erreurs JWT
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
     return jsonify({"error": "Missing or invalid token"}), 401
