@@ -91,7 +91,7 @@ def add_user():
     city = data.get('city')
 
     if username in users:
-        return jsonify({"error": "User already exists"}), 400
+        return jsonify({"error": "User already exists"}), 409
 
     """Vérification des types"""
     if not isinstance(age, int) or age <= 0:
@@ -99,7 +99,7 @@ def add_user():
     if not isinstance(name, str) or not isinstance(city, str):
         return jsonify({"error": "Name and city must be strings"}), 400
 
-    # Ajout de l'utilisateur
+    """Ajout de l'utilisateur"""
     users[username] = {"name": name, "age": age, "city": city}
 
     """Message de succès correspondant à l'énoncé"""
