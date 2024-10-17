@@ -25,7 +25,7 @@ from flask import Flask, jsonify, request, Response
 
 app = Flask(__name__)
 
-""""In-memory dictionary to store users (starting empty)""""
+# In-memory dictionary to store users (starting empty)
 users: Dict[str, Dict[str, Any]] = {}
 
 
@@ -78,7 +78,7 @@ def get_user(username):
     if user:
         return jsonify(user)
     else:
-        return jsonify({"error": "User not found"}), 404
+        return jsonify({"error": "Not found"}), 404
 
 
 @app.route('/add_user', methods=['POST'])
@@ -100,7 +100,7 @@ def add_user():
 
     username = data['username']
 
-    """"Check if the same username with the same details exists"""
+    # Check if the same username with the same details exists
     existing_user = users.get(username)
     if existing_user and existing_user == {
         "username": username,
@@ -112,7 +112,7 @@ def add_user():
             "error": "User with identical details already exists"
         }), 400
 
-    """Update or add the user"""
+    # Update or add the user
     users[username] = {
         "username": username,
         "name": data.get("name"),
@@ -142,6 +142,6 @@ def page_not_found(e):
     return jsonify({"error": "Not found"}), 404
 
 
-"""Run the application"""
+# Run the application
 if __name__ == '__main__':
     app.run()
