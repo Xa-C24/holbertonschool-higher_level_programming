@@ -1,28 +1,41 @@
 #!/usr/bin/env python3
 """
-Ce fichier contient une API simple utilisant Flask pour gérer des utilisateurs.
-Les utilisateurs sont stockés en mémoire sous forme de dictionnaire.
+This script sets up a simple Flask web application to demonstrate API routing,
+JSON data handling, and basic request-response cycles.
 
-Il fournit des points d'extrémité pour :
-- Afficher un message de bienvenue à l'URL racine (`/`).
-- Retourner une liste de noms d'utilisateurs à `/data`.
-- Vérifier le statut de l'API à `/status`.
-- Récupérer les informations de l'utilisateur à `/users/<username>`.
-- Ajouter un nouvel utilisateur via une requête POST à `/add_user`.
+It provides endpoints for:
+
+- Displaying a welcome message at the root URL (`/`).
+- Returning a list of usernames at `/data`.
+- Checking the API status at `/status`.
+- Retrieving user information at `/users/<username>`.
+- Adding a new user via a POST request to `/add_user`.
+
+Modules used:
+
+- Flask: A micro web framework for building web applications and APIs.
+- jsonify: A utility function to convert Python data structures to JSON format.
+- request: Handles incoming requests, providing access to headers and data.
+- Response: Used to customize response objects,
+  including headers and MIME types.
 """
 
+from typing import Dict, Any
 from flask import Flask, jsonify, request, Response
 
 app = Flask(__name__)
 
-"""Dictionnaire vide par défaut"""
-users = {}
+""""In-memory dictionary to store users (starting empty)""""
+users: Dict[str, Dict[str, Any]] = {}
 
 
 @app.route('/')
 def home():
     """
-    Route principale de l'API. Retourne un message de bienvenue.
+    Handles the root endpoint and returns a welcome message.
+
+    Returns:
+        Response: A plain text welcome message.
     """
     return Response("Welcome to the Flask API!", mimetype='text/plain')
 
@@ -30,15 +43,21 @@ def home():
 @app.route('/data')
 def get_users():
     """
-    Retourne la liste des utilisateurs.
+    Returns a JSON response with a list of all usernames.
+
+    Returns:
+        Response: A JSON array of usernames.
     """
-    return jsonify(list(users.keys())), 200
+    return jsonify(list(users.keys()))
 
 
 @app.route('/status')
 def status():
     """
-    Vérifie l'état de l'API.
+    Returns the API status.
+
+    Returns:
+        Response: A plain text message indicating the API status.
     """
     return Response("OK", mimetype='text/plain')
 
@@ -46,11 +65,18 @@ def status():
 @app.route('/users/<username>')
 def get_user(username):
     """
-    Récupère les informations d'un utilisateur en fonction de son nom d'utilisateur.
+    Returns the complete user object corresponding to the provided username.
+
+    Args:
+        username (str): The username to retrieve.
+
+    Returns:
+        Response: A JSON object of the user's details if found,
+                  otherwise a JSON error message with a 404 status code.
     """
     user = users.get(username)
     if user:
-        return jsonify(user), 200
+        return jsonify(user)
     else:
         return jsonify({"error": "User not found"}), 404
 
@@ -58,56 +84,64 @@ def get_user(username):
 @app.route('/add_user', methods=['POST'])
 def add_user():
     """
-    Ajoute un nouvel utilisateur à la liste.
+    Handles POST requests to add a new user.
+
+    Expects JSON data containing 'username', 'name', 'age', and 'city'.
+
+    Returns:
+        Response: A confirmation message with the added user's data,
+                  or an error message if 'username' is missing or a duplicate
+                  with the same details exists.
     """
-    if not request.is_json:
-        return jsonify({"error": "Invalid request format: JSON required"}), 400
-
     data = request.get_json()
-    if not data:
-        return jsonify({"error": "Invalid JSON data"}), 400
 
-    """Vérification des champs requis avec messages spécifiques"""
-    if 'username' not in data:
+    if not data or 'username' not in data:
         return jsonify({"error": "Username is required"}), 400
-    if 'name' not in data:
-        return jsonify({"error": "Name is required"}), 400
-    if 'age' not in data:
-        return jsonify({"error": "Age is required"}), 400
-    if 'city' not in data:
-        return jsonify({"error": "City is required"}), 400
 
-    username = data.get('username')
-    name = data.get('name')
-    age = data.get('age')
-    city = data.get('city')
+    username = data['username']
 
-    """Vérification si le nom d'utilisateur existe déjà"""
-    if username in users:
-        return jsonify({"error": "Username already exists"}), 409
+    """"Check if the same username with the same details exists"""
+    existing_user = users.get(username)
+    if existing_user and existing_user == {
+        "username": username,
+        "name": data.get("name"),
+        "age": data.get("age"),
+        "city": data.get("city")
+    }:
+        return jsonify({
+            "error": "User with identical details already exists"
+        }), 400
 
-    """Conversion de l'âge en entier et vérification qu'il est positif"""
-    try:
-        age = int(age)
-        if age <= 0:
-            return jsonify({"error": "Age must be a positive integer"}), 400
-    except (ValueError, TypeError):
-        return jsonify({"error": "Age must be a positive integer"}), 400
-
-    """Ajout de l'utilisateur"""
+    """Update or add the user"""
     users[username] = {
         "username": username,
-        "name": name,
-        "age": age,
-        "city": city
+        "name": data.get("name"),
+        "age": data.get("age"),
+        "city": data.get("city")
     }
-
-    """Retourner une réponse de succès"""
     return jsonify({
         "message": "User added",
         "user": users[username]
     }), 201
 
 
+"""Use 201 Created for successful POST requests"""
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+    Handles undefined endpoints and returns a custom error message.
+
+    Args:
+        e (Exception): The raised exception.
+
+    Returns:
+        Response: A JSON error message with a 404 status code.
+    """
+    return jsonify({"error": "Not found"}), 404
+
+
+"""Run the application"""
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run()
