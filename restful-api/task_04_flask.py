@@ -111,15 +111,10 @@ def add_user():
         }), 400
     '''
     # Update or add the user
-    users[username] = {
-        "username": username,
-        "name": data.get("name"),
-        "age": data.get("age"),
-        "city": data.get("city")
-    }
+    users[username] = data
     return jsonify({
         "message": "User added",
-        "user": users[username]
+        "user": data
     }), 201  # Use 201 Created for successful POST requests
 
 
