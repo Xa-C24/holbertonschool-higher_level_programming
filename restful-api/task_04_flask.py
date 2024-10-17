@@ -91,7 +91,14 @@ def add_user():
     city = data.get('city')
 
     if username in users:
-        return jsonify({"error": "User already exists"}), 409
+        return jsonify({"error": "User already exists"}), 400
+
+    try:
+        age = int(age)
+        if age <= 0:
+            return jsonify({"error": "Age must be a positive integer"}), 400
+    except (ValueError, TypeError):
+        return jsonify({"error": "Age must be a positive integer"}), 400
 
     """Vérification des types"""
     if not isinstance(age, int) or age <= 0:
