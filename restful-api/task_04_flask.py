@@ -19,11 +19,9 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Dictionnaire contenant les utilisateurs
-users = {
-    "jane": {"name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"name": "John", "age": 30, "city": "New York"}
-}
+
+"""Dictionnaire vide par défaut"""
+users = {}
 
 
 @app.route('/')
@@ -36,7 +34,7 @@ def home():
     Retour :
         - message : JSON contenant un message de bienvenue.
     """
-    return jsonify({"message": "Welcome to the Flask API!"})
+    return "Welcome to the Flask API!", 200
 
 
 @app.route('/data')
@@ -49,7 +47,7 @@ def get_users():
     Retour :
         - Liste des clés (noms d'utilisateurs) du dictionnaire `users`.
     """
-    return jsonify(list(users.keys()))
+    return jsonify(list(users.keys())), 200
 
 
 @app.route('/status')
