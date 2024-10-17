@@ -97,7 +97,7 @@ def add_user():
     username = data['username']
     if not data or 'username' not in data:
         return jsonify({"error": "Username is required"}), 400
-    '''
+
     # Check if the same username with the same details exists
     existing_user = users.get(username)
     if existing_user and existing_user == {
@@ -109,7 +109,7 @@ def add_user():
         return jsonify({
             "error": "User with identical details already exists"
         }), 400
-    '''
+ 
     # Update or add the user
     users[username] = data
     return jsonify({
