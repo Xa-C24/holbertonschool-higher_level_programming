@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Script démontrant l'authentification HTTP de base et JWT dans Flask"""
 
-from flask import Flask, jsonify, request, make_response
+from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import (
@@ -29,14 +29,12 @@ users = {
 
 @auth.verify_password
 def verify_password(username, password):
-    if username in users and check_password_hash(users[username]['password'], password):
-        return username
+    user = users.get(username)
+    if user and check_password_hash(user['password'], password):
+        return user  # Retourne l'objet utilisateur
     return None
 
-# Ajout du gestionnaire d'erreur personnalisé pour Flask-HTTPAuth
-@auth.error_handler
-def unauthorized():
-    return make_response(jsonify({"error": "Unauthorized access"}), 401, {'WWW-Authenticate': 'Basic realm="Login Required"'})
+# Suppression du gestionnaire d'erreur personnalisé pour utiliser le comportement par défaut
 
 @app.route('/basic-protected', methods=['GET'])
 @auth.login_required
@@ -62,25 +60,26 @@ def login():
     )
     return jsonify(access_token=access_token)
 
-# Gestionnaires d'erreurs JWT
+"""Gestionnaires d'erreurs JWT"""
+
 @jwt.unauthorized_loader
-def handle_unauthorized_error(err):
+def unauthorized_callback(error_string):
     return jsonify({"error": "Missing or invalid token"}), 401
 
 @jwt.invalid_token_loader
-def handle_invalid_token_error(err):
+def invalid_token_callback(error_string):
     return jsonify({"error": "Invalid token"}), 401
 
 @jwt.expired_token_loader
-def handle_expired_token_error(jwt_header, jwt_payload):
+def expired_token_callback(decrypted_token):
     return jsonify({"error": "Token has expired"}), 401
 
 @jwt.revoked_token_loader
-def handle_revoked_token_error(jwt_header, jwt_payload):
+def revoked_token_callback(decrypted_token):
     return jsonify({"error": "Token has been revoked"}), 401
 
 @jwt.needs_fresh_token_loader
-def handle_needs_fresh_token_error(jwt_header, jwt_payload):
+def needs_fresh_token_callback(decrypted_token):
     return jsonify({"error": "Fresh token required"}), 401
 
 @app.route('/jwt-protected', methods=['GET'])
@@ -97,4 +96,4 @@ def admin_only():
     return "Admin Access: Granted"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
