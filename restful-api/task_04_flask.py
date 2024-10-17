@@ -78,7 +78,7 @@ def get_user(username):
     if user:
         return jsonify(user)
     else:
-        return jsonify({"error": "Not found"}), 404
+        return jsonify({"error": "User not found"}), 404
 
 
 @app.route('/add_user', methods=['POST'])
@@ -94,12 +94,10 @@ def add_user():
                   with the same details exists.
     """
     data = request.get_json()
-
+    username = data['username']
     if not data or 'username' not in data:
         return jsonify({"error": "Username is required"}), 400
-
-    username = data['username']
-
+    '''
     # Check if the same username with the same details exists
     existing_user = users.get(username)
     if existing_user and existing_user == {
@@ -111,7 +109,7 @@ def add_user():
         return jsonify({
             "error": "User with identical details already exists"
         }), 400
-
+    '''
     # Update or add the user
     users[username] = {
         "username": username,
