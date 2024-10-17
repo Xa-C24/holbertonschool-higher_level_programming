@@ -40,10 +40,7 @@ def status():
     """
     Vérifie l'état de l'API.
     """
-    return "OK", 200
-
-
-"""Retourne une chaîne de caractères OK"""
+    return Response("OK", mimetype='text/plain')
 
 
 @app.route('/users/<username>')
@@ -53,7 +50,7 @@ def get_user(username):
     """
     user = users.get(username)
     if user:
-        return jsonify(user)
+        return jsonify(user), 200
     else:
         return jsonify({"error": "User not found"}), 404
 
@@ -85,8 +82,31 @@ def add_user():
     age = data.get('age')
     city = data.get('city')
 
+    """Vérification si le nom d'utilisateur existe déjà"""
     if username in users:
-        return jsonify({"error": "Username already exists"}), 400
+        return jsonify({"error": "Username already exists"}), 409
+
+    """Conversion de l'âge en entier et vérification qu'il est positif"""
+    try:
+        age = int(age)
+        if age <= 0:
+            return jsonify({"error": "Age must be a positive integer"}), 400
+    except (ValueError, TypeError):
+        return jsonify({"error": "Age must be a positive integer"}), 400
+
+    """Ajout de l'utilisateur"""
+    users[username] = {
+        "username": username,
+        "name": name,
+        "age": age,
+        "city": city
+    }
+
+    """Retourner une réponse de succès"""
+    return jsonify({
+        "message": "User added",
+        "user": users[username]
+    }), 201
 
 
 if __name__ == '__main__':
