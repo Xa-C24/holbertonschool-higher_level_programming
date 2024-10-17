@@ -122,7 +122,7 @@ def add_user():
     return jsonify({
         "message": "User added",
         "user": users[username]
-    }), 201  #Use 201 Created for successful POST requests
+    }), 201  # Use 201 Created for successful POST requests
 
 
 @app.errorhandler(404)
