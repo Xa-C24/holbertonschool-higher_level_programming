@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Ce fichier contient une API simple utilisant Flask pour gérer des utilisateurs.
 Les utilisateurs sont stockés en mémoire sous forme de dictionnaire.
@@ -11,7 +11,7 @@ Il fournit des points d'extrémité pour :
 - Ajouter un nouvel utilisateur via une requête POST à `/add_user`.
 """
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response
 
 app = Flask(__name__)
 
@@ -24,7 +24,7 @@ def home():
     """
     Route principale de l'API. Retourne un message de bienvenue.
     """
-    return "Welcome to the Flask API!", 200
+    return Response("Welcome to the Flask API!", mimetype='text/plain')
 
 
 @app.route('/data')
@@ -51,14 +51,9 @@ def get_user(username):
     """
     Récupère les informations d'un utilisateur en fonction de son nom d'utilisateur.
     """
-    user_data = users.get(username)
-    if user_data:
-        return jsonify({
-            "username": username,
-            "name": user_data["name"],
-            "age": user_data["age"],
-            "city": user_data["city"]
-        }), 200
+    user = users.get(username)
+    if user:
+        return jsonify(user)
     else:
         return jsonify({"error": "User not found"}), 404
 
@@ -91,34 +86,7 @@ def add_user():
     city = data.get('city')
 
     if username in users:
-        return jsonify({"error": "User already exists"}), 400
-
-    try:
-        age = int(age)
-        if age <= 0:
-            return jsonify({"error": "Age must be a positive integer"}), 400
-    except (ValueError, TypeError):
-        return jsonify({"error": "Age must be a positive integer"}), 400
-
-    """Vérification des types"""
-    if not isinstance(age, int) or age <= 0:
-        return jsonify({"error": "Age must be a positive integer"}), 400
-    if not isinstance(name, str) or not isinstance(city, str):
-        return jsonify({"error": "Name and city must be strings"}), 400
-
-    """Ajout de l'utilisateur"""
-    users[username] = {"name": name, "age": age, "city": city}
-
-    """Message de succès correspondant à l'énoncé"""
-    return jsonify({
-        "message": "User added",
-        "user": {
-            "username": username,
-            "name": name,
-            "age": age,
-            "city": city
-        }
-    }), 201
+        return jsonify({"error": "Username already exists"}), 400
 
 
 if __name__ == '__main__':
