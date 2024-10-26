@@ -1,5 +1,7 @@
 # Introduction to Relational Databases
 
+start SQL: mysql -uroot -p     password: root
+
 ## What is a Relational Database?
 
 A relational database is a database management system (DBMS) in which data is organized into **tables**. Each table consists of rows (called **records** or **tuples**) and columns (called **fields**). This management model allows data to be structured coherently, with relationships between different tables.
