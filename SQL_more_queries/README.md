@@ -40,17 +40,17 @@ Here is a list of the main ones:
 - ROLLBACK: Reverses all changes made in the current transaction.  
 - SAVEPOINT: Defines a restore point to allow a partial ROLLBACK to this point in a transaction.  
 
-*MySQL query examples 1.**  
+**MySQL query examples 1.**  
 
-        Basic query to retrieve data:  
+Basic query to retrieve data:  
         sql Copy the code 
         SELECT name, age FROM users WHERE age > 18 ORDER BY name;  
         
-        2. Add data to a table:  
+Add data to a table:  
         sql Copy the code INSERT INTO users (name, age) VALUES ('Alice', 30);  
         
-        3. Modify existing data:  
+Modify existing data:  
         sql Copy the code UPDATE users SET age = 31 WHERE name = 'Alice';   
 
-        4. Give privileges to a user: 
+Give privileges to a user: 
         sql Copy the code GRANT SELECT, INSERT ON database_name.* TO 'user'@'localhost';
