@@ -43,14 +43,18 @@ Here is a list of the main ones:
 **MySQL query examples 1.**  
 
 Basic query to retrieve data:  
+
         sql Copy the code 
         SELECT name, age FROM users WHERE age > 18 ORDER BY name;  
         
 Add data to a table:  
+
         sql Copy the code INSERT INTO users (name, age) VALUES ('Alice', 30);  
         
 Modify existing data:  
+
         sql Copy the code UPDATE users SET age = 31 WHERE name = 'Alice';   
 
 Give privileges to a user: 
+
         sql Copy the code GRANT SELECT, INSERT ON database_name.* TO 'user'@'localhost';
