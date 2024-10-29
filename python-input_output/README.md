@@ -28,6 +28,12 @@ Writing to a file: Use open() with write mode ("w", "a") to save data to a file.
         with open("sortie.txt", "w") as fichier:
         fichier.write("Ceci est du texte écrit dans le fichier.")  
 
+When you open a file, you can choose different access modes:  
+- "r": Read only.  
+- w": Write. If the file exists, it will be overwritten. If the file does not exist, it will be created.  
+- a": Add. The file will be opened to add data at the end, without overwriting the existing content.  
+- r+": Read and write.  
+
 
 3. File management  
 In Python, you can work with files by opening them using the open() function.  
@@ -90,6 +96,17 @@ In short:
 
   json.dump(my_obj, f):  
   sauvegarder des données de manière structurée et les partager avec d'autres systèmes qui lisent le format JSON.  
+  Convertit l'objet Python en JSON et l'écrit dans le fichier.    **Sérialiser en chaîne JSON.**  
 
   json.loads:  
   convertit en une structure de données Python, telle qu'un dictionnaire, une liste, un nombre, ou une chaîne de caractères.  
+  Lit le contenu du fichier JSON et le convertit en objet Python (par exemple, un dictionnaire).  **Désérialiser à partir d'une chaîne JSON.**  
+
+This is really important! If you don't use with, you need to close the file manually with f.close(). Using with ensures that even in the event of an error, your file will always be closed cleanly.  
+
+Quand tu lis un fichier, Python garde une position interne appelée curseur. Tu peux utiliser la fonction seek() pour déplacer ce curseur à une position précise.  
+
+    with open("mon_fichier.txt", "r") as f:
+    f.seek(10)  # Déplace le curseur à la position 10
+    print(f.read())  # Lit à partir de la position 10 print à partir du 10ème caratère et non 10ème ligne du file.  
+    

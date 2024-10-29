@@ -1,10 +1,10 @@
-**Python - Hello, World**
+**Python - Hello, World**  
 In this project, I began practicing using the interpreter, printing text and variables, and indexing and slicing strings in Python.
 
-#!/usr/bin/python3
+#!/usr/bin/python3  
 
-chod +x 'namefile'
-python3 'namefile'
+chod +x 'namefile'  
+python3 'namefile'  
 
 2-print.py _ Write a Python script that prints exactly "Programming is like building a multilingual puzzle, followed by a new line.  
 3-print_number.py _ Complete this source code in order to print the integer stored in the variable number, followed by Battery street, followed by a new line.  
@@ -14,3 +14,14 @@ python3 'namefile'
 7-edges.py _ Complete this source code  
 8-concat_edges.py _ Complete this source code to print object-oriented programming with Python, followed by a new line.  
 9-easter_egg.py _ Write a Python script that prints “The Zen of Python”, by TimPeters, followed by a new line.  
+
+** How to install Python**  
+
+sudo apt update  
+sudo apt install python3  
+
+
+Check installation  python3 --version
+
+installation PIP  
+sudo apt install python3-pip

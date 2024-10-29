@@ -21,11 +21,20 @@ Modules used:
 """
 
 from typing import Dict, Any
+# Importation du module `Dict` et `Any` depuis `typing` pour définir des types génériques.
+# `Dict` est utilisé pour indiquer que certaines variables seront des dictionnaires,
+# et `Any` permet de représenter des valeurs de tout type.
+
 from flask import Flask, jsonify, request, Response
+# Importation des fonctions `Flask`, `jsonify`, `request`, et `Response` depuis le module `flask`.
+# `Flask` est utilisé pour créer une application web.
+# `jsonify` est utilisé pour convertir des objets Python en format JSON dans les réponses HTTP.
+# `request` permet d'accéder aux données envoyées dans une requête HTTP (par exemple, les données JSON).
+# `Response` permet de créer une réponse HTTP personnalisée, y compris avec des en-têtes spécifiques.
 
 app = Flask(__name__)
 
-# In-memory dictionary to store users (starting empty)
+# Dictionnaire en mémoire pour stocker les utilisateurs
 users: Dict[str, Dict[str, Any]] = {}
 
 
@@ -65,14 +74,10 @@ def status():
 @app.route('/users/<username>')
 def get_user(username):
     """
-    Returns the complete user object corresponding to the provided username.
-
-    Args:
-        username (str): The username to retrieve.
-
-    Returns:
-        Response: A JSON object of the user's details if found,
-                  otherwise a JSON error message with a 404 status code.
+   Renvoie l'objet utilisateur complet correspondant au nom d'utilisateur fourni. 
+   Args : nom d'utilisateur (str) : Le nom d'utilisateur à récupérer.
+   Retourne : Réponse : Un objet JSON contenant les détails de l'utilisateur s'il a été trouvé,
+    sinon un message d'erreur JSON avec un code d'état 404.
     """
     user = users.get(username)
     if user:
@@ -84,14 +89,10 @@ def get_user(username):
 @app.route('/add_user', methods=['POST'])
 def add_user():
     """
-    Handles POST requests to add a new user.
-
-    Expects JSON data containing 'username', 'name', 'age', and 'city'.
-
-    Returns:
-        Response: A confirmation message with the added user's data,
-                  or an error message if 'username' is missing or a duplicate
-                  with the same details exists.
+    Gère les requêtes POST pour ajouter un nouvel utilisateur. 
+    Attend des données JSON contenant 'username', 'name', 'age', et 'city'. 
+    Retourne : Réponse : Un message de confirmation avec les données de l'utilisateur ajouté, ou un message d'erreur si 'username' 
+    est manquant ou s'il existe un doublon avec les mêmes détails.
     """
     data = request.get_json()
     username = data.get(username)
