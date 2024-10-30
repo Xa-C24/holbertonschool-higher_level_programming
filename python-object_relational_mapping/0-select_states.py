@@ -1,58 +1,28 @@
 #!/usr/bin/python3
+"""Script qui liste tous les états depuis la base de données spécifiée."""
+
 import MySQLdb
-import sys
+from sys import argv
 
 if __name__ == "__main__":
-    """
-    Script to list all states from a MySQL database.
-
-    This script connects to a MySQL database and retrieves all entries in
-    the 'states' table, sorted in ascending order by the 'id' field.
-    It takes three arguments:
-        1. MySQL username
-        2. MySQL password
-        3. Database name
-
-    Usage:
-        ./0-select_states.py <mysql_username> <mysql_password> <database_name>
-
-    Requirements:
-        - MySQLdb module must be installed.
-        - The MySQL server must be running on localhost, using port 3306.
-        - The database must contain a table named 'states' with at least
-          'id' and 'name' columns.
-
-    Example output:
-        (1, 'California')
-        (2, 'Arizona')
-        ...
-    """
-    # Arguments passés en ligne de commande
-    mysql_username = sys.argv[1]
-    mysql_password = sys.argv[2]
-    database_name = sys.argv[3]
-
     # Connexion à la base de données MySQL
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=mysql_username,
-        passwd=mysql_password,
-        db=database_name
-    )
+    # argv[1] : nom d'utilisateur MySQL
+    # argv[2] : mot de passe MySQL
+    # argv[3] : nom de la base de données
+    conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                           passwd=argv[2], db=argv[3], charset="utf8")
 
-    # Création d'un curseur pour exécuter la requête
-    cursor = db.cursor()
+    # Création d'un curseur pour exécuter les requêtes SQL
+    cur = conn.cursor()
 
-    # Requête pour sélectionner tous les états triés par id
-    query = "SELECT * FROM states ORDER BY id ASC"
-    cursor.execute(query)
+    # Exécution de la requête SQL pour récupérer tous les états, triés par id croissant
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
 
-    # Récupérer et afficher les résultats
-    states = cursor.fetchall()
-    for state in states:
-        print(state)
+    # Récupération et affichage des résultats de la requête
+    query_rows = cur.fetchall()
+    for row in query_rows:
+        print(row)
 
-    # Fermeture du curseur et de la connexion
-    cursor.close()
-    db.close()
+    # Fermeture du curseur et de la connexion à la base de données
+    cur.close()
+    conn.close()
