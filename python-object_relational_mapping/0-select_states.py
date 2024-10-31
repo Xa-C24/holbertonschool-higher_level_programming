@@ -15,7 +15,8 @@ if __name__ == "__main__":
     # Création d'un curseur pour exécuter les requêtes SQL
     cur = conn.cursor()
 
-    # Exécution de la requête SQL pour récupérer tous les états, triés par id croissant
+    # Exécution de la requête SQL pour récupérer tous les états,
+    # triés par id croissant
     cur.execute("SELECT * FROM states ORDER BY states.id ASC")
 
     # Récupération et affichage des résultats de la requête
