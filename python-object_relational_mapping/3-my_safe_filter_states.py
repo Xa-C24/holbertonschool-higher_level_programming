@@ -12,6 +12,7 @@ if __name__ == "__main__":
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
+    state_nane = sys.argv[4]
 
     # Connexion à la base de données MySQL
     db = MySQLdb.connect(
