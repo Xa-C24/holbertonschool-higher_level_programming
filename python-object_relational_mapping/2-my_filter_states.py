@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     # Requête pour filtrer les états en fonction du nom
     query = "SELECT * FROM states WHERE BINARY name = {} ORDER BY id ASC".format(state_name)
-    cursor.execute(query, (state_name,))
+    cursor.execute(query)
 
     # Récupération et affichage des résultats
     rows = cursor.fetchall()
