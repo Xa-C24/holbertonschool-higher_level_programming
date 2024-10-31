@@ -10,6 +10,8 @@ from sqlalchemy.orm import declarative_base
 Base = declarative_base()
 
 # Définition de la classe State
+
+
 class State(Base):
     __tablename__ = 'states'
 
