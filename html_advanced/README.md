@@ -76,4 +76,4 @@ Tags used for creating visual elements on a webpage.
   <canvas id="myCanvas" width="200" height="100"></canvas>
 
 ## .Conclusion  
-    Advanced HTML tags allow developers to create structured, dynamic, and SEO-friendly web pages. Using semantic tags, multimedia elements, and integration of CSS/JavaScript enhances both the functionality and user experience of web applications.  
+Advanced HTML tags allow developers to create structured, dynamic, and SEO-friendly web pages. Using semantic tags, multimedia elements, and integration of CSS/JavaScript enhances both the functionality and user experience of web applications.  
