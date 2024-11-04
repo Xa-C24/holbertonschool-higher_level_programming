@@ -59,30 +59,21 @@ For complex and dynamic content structures.
       </div>
   </template>
 
-             
-## 5. Script and Style Tags
+ ## 5. Script and Style Tags
 These tags are used for adding CSS and JavaScript.
 
-    <script>: Embeds or links JavaScript.
-
-    <script>
+- **`<script>`**: Embeds or links JavaScript.
+  ```html
+  <script>
       console.log('Embedded JavaScript code');
-    </script>
+  </script>
 
-
-    <script>
-        console.log('Embedded JavaScript code');
-    </script>
-
-## 7. Graphics and Drawing Tags
+## 6. Graphics and Drawing Tags
 Tags used for creating visual elements on a webpage.
 
-<canvas>: Used to draw graphics via JavaScript.
-    <canvas id="myCanvas" width="200" height="100"></canvas>
-
-    <svg width="100" height="100">
-    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-    </svg>
+- **`<canvas>`**: Used to draw graphics via JavaScript.
+  ```html
+  <canvas id="myCanvas" width="200" height="100"></canvas>
 
 ## .Conclusion  
     Advanced HTML tags allow developers to create structured, dynamic, and SEO-friendly web pages. Using semantic tags, multimedia elements, and integration of CSS/JavaScript enhances both the functionality and user experience of web applications.  
