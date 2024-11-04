@@ -28,7 +28,6 @@ HTML provides tags for embedding multimedia content.
     Your browser does not support the video tag.
 </video>
 
-
 ## 3. Interactive and Form Tags
 Tags used for creating forms and interactive user elements.
 
@@ -42,7 +41,6 @@ Tags used for creating forms and interactive user elements.
         <input type="text" id="name" name="name">
         <button type="submit">Submit</button>
     </form>
-
 
 ## 4. Advanced Content Tags
 For complex and dynamic content structures.
@@ -70,7 +68,6 @@ These tags are used for adding CSS and JavaScript.
         console.log('Embedded JavaScript code');
     </script>
 
-
 ## 7. Graphics and Drawing Tags
 Tags used for creating visual elements on a webpage.
 
@@ -81,6 +78,5 @@ Tags used for creating visual elements on a webpage.
     <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
     </svg>
 
-
-    ## .Conclusion  
+## .Conclusion  
     Advanced HTML tags allow developers to create structured, dynamic, and SEO-friendly web pages. Using semantic tags, multimedia elements, and integration of CSS/JavaScript enhances both the functionality and user experience of web applications.  
